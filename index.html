@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shri Vaishno Enterprises – Industrial Machine Manufacturer, New Delhi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8922A;
+  --gold2:#E8B860;
+  --gold-light:#FDF4E3;
+  --navy:#060E1E;
+  --navy2:#0D1B33;
+  --navy3:#152646;
+  --steel:#1E3A5F;
+  --text:#0D1B33;
+  --muted:#607080;
+  --border:#D8E2EE;
+  --white:#FFFFFF;
+  --bg:#F6F8FC;
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ═══════════ NAV ═══════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  height:76px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(6,14,30,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,146,42,0.2);
+  transition:all 0.3s;
+}
+nav.scrolled{background:rgba(6,14,30,0.98);box-shadow:0 4px 30px rgba(0,0,0,0.4)}
+
+.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-emblem{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:16px;color:var(--navy);letter-spacing:-0.5px;
+  font-family:'Cormorant Garamond',serif;
+  box-shadow:0 4px 16px rgba(200,146,42,0.4);
+}
+.nav-name{display:flex;flex-direction:column}
+.nav-name strong{font-size:14px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:0.2px}
+.nav-name span{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+
+.nav-menu{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-menu a{
+  text-decoration:none;color:rgba(255,255,255,0.7);
+  font-size:13.5px;font-weight:500;letter-spacing:0.3px;
+  transition:color 0.2s;position:relative;
+}
+.nav-menu a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;
+}
+.nav-menu a:hover{color:#fff}
+.nav-menu a:hover::after{transform:scaleX(1)}
+
+.nav-quote{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
+  color:var(--navy)!important;padding:10px 24px;border-radius:8px;
+  font-weight:700!important;font-size:13px!important;letter-spacing:0.5px;
+  box-shadow:0 4px 20px rgba(200,146,42,0.35);
+  transition:all 0.3s!important;
+}
+.nav-quote::after{display:none!important}
+.nav-quote:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(200,146,42,0.5)!important}
+
+/* ═══════════ HERO CAROUSEL ═══════════ */
+.hero{
+  margin-top:76px;height:calc(100vh - 76px);
+  min-height:600px;max-height:860px;
+  position:relative;overflow:hidden;
+}
+
+.carousel-wrap{display:flex;height:100%;transition:transform 0.9s cubic-bezier(0.77,0,0.175,1)}
+
+.slide{
+  min-width:100%;height:100%;position:relative;
+  display:flex;align-items:center;
+}
+
+.slide-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform 8s ease;
+}
+.slide.active .slide-img{transform:scale(1.06)}
+
+.slide-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(105deg, rgba(6,14,30,0.94) 35%, rgba(6,14,30,0.55) 70%, rgba(6,14,30,0.2) 100%);
+}
+
+.slide-noise{
+  position:absolute;inset:0;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+.slide-content{
+  position:relative;z-index:3;
+  padding:0 100px;
+  max-width:720px;
+  opacity:0;transform:translateY(30px);
+  transition:opacity 0.7s 0.3s ease, transform 0.7s 0.3s ease;
+}
+.slide.active .slide-content{opacity:1;transform:translateY(0)}
+
+.slide-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:6px 18px 6px 8px;
+  background:rgba(200,146,42,0.12);
+  border:1px solid rgba(200,146,42,0.35);
+  border-radius:100px;
+  margin-bottom:24px;
+}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.slide-eyebrow span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2)}
+
+.slide-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5.5vw,72px);
+  font-weight:700;color:#fff;
+  line-height:1.08;
+  margin-bottom:20px;
+  letter-spacing:-0.5px;
+}
+.slide-h1 em{color:var(--gold2);font-style:normal}
+
+.slide-p{
+  font-size:16px;color:rgba(255,255,255,0.65);
+  line-height:1.75;margin-bottom:14px;
+  max-width:500px;font-weight:300;
+}
+
+.slide-price-line{
+  display:flex;align-items:baseline;gap:8px;margin-bottom:32px;
+}
+.slide-from{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase}
+.slide-amount{font-size:34px;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif}
+.slide-unit{font-size:12px;color:rgba(255,255,255,0.4)}
+
+.slide-btns{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
+  color:var(--navy);padding:14px 32px;border-radius:9px;
+  font-size:14px;font-weight:700;letter-spacing:0.4px;
+  border:none;cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:0 6px 28px rgba(200,146,42,0.4);
+  transition:all 0.3s;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(200,146,42,0.55)}
+
+.btn-ghost{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.22);
+  color:#fff;padding:13px 28px;border-radius:9px;
+  font-size:14px;font-weight:500;
+  text-decoration:none;display:inline-block;
+  backdrop-filter:blur(8px);
+  transition:all 0.3s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.4)}
+
+/* side thumbnail strip */
+.slide-thumbs{
+  position:absolute;right:48px;top:50%;transform:translateY(-50%);
+  z-index:10;display:flex;flex-direction:column;gap:12px;
+}
+.thumb{
+  width:72px;height:54px;border-radius:8px;overflow:hidden;
+  cursor:pointer;border:2px solid transparent;
+  transition:all 0.3s;opacity:0.45;
+  background-size:cover;background-position:center;
+}
+.thumb.active{border-color:var(--gold);opacity:1;box-shadow:0 4px 20px rgba(200,146,42,0.4)}
+.thumb:hover{opacity:0.8}
+
+/* nav arrows */
+.c-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  z-index:10;width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+  color:#fff;font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);transition:all 0.3s;
+}
+.c-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.c-arrow.prev{left:28px}
+.c-arrow.next{right:140px}
+
+/* dots */
+.c-dots{
+  position:absolute;bottom:32px;left:100px;
+  display:flex;gap:8px;z-index:10;align-items:center;
+}
+.c-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.4s;
+}
+.c-dot.on{background:var(--gold);width:28px;border-radius:3px}
+
+/* progress bar */
+.slide-progress{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:rgba(255,255,255,0.08);z-index:10;
+}
+.slide-progress-bar{
+  height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));
+  width:0%;transition:width 5s linear;
+}
+
+/* ═══════════ TICKER ═══════════ */
+.ticker{
+  background:linear-gradient(90deg,var(--gold) 0%,#B87A1A 100%);
+  padding:12px 0;overflow:hidden;position:relative;
+}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:tick 30s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0 40px;
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--navy);
+}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--navy);opacity:0.4}
+
+/* ═══════════ SECTION SHELL ═══════════ */
+.sec{padding:100px 80px}
+.sec-alt{background:var(--bg)}
+
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+
+.sec-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,3.5vw,50px);
+  font-weight:700;color:var(--navy);
+  line-height:1.15;margin-bottom:16px;
+  letter-spacing:-0.3px;
+}
+.sec-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:580px}
+
+.sec-head{margin-bottom:56px}
+.sec-head.ctr{text-align:center}
+.sec-head.ctr .sec-eyebrow,.sec-head.ctr .sec-sub{margin-left:auto;margin-right:auto;display:flex;justify-content:center}
+.sec-head.ctr .sec-eyebrow{display:inline-flex}
+
+/* ═══════════ NUMBERS STRIP ═══════════ */
+.numbers{
+  background:var(--navy);
+  padding:0 80px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.num-cell{
+  padding:52px 0;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.07);
+  position:relative;overflow:hidden;
+}
+.num-cell:last-child{border-right:none}
+.num-cell::before{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:0;height:2px;background:var(--gold);transition:width 0.5s;
+}
+.num-cell:hover::before{width:60%}
+.num-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px;font-weight:700;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;
+}
+.num-plus{font-size:32px;vertical-align:super;margin-left:2px}
+.num-label{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase;margin-top:10px;font-weight:500}
+
+/* ═══════════ CATEGORIES ═══════════ */
+.cats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+}
+.cat-tile{
+  position:relative;height:360px;overflow:hidden;cursor:pointer;
+}
+.cat-tile:first-child{grid-column:span 2;height:420px}
+.cat-img{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.cat-tile:hover .cat-img{transform:scale(1.07)}
+.cat-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(6,14,30,0.88) 0%,rgba(6,14,30,0.25) 60%,rgba(6,14,30,0.05) 100%);
+  transition:background 0.4s;
+}
+.cat-tile:hover .cat-veil{background:linear-gradient(0deg,rgba(6,14,30,0.92) 0%,rgba(6,14,30,0.5) 60%,rgba(6,14,30,0.15) 100%)}
+.cat-body{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:28px 28px 30px;
+  transform:translateY(0);
+}
+.cat-icon-wrap{
+  width:46px;height:46px;border-radius:10px;
+  background:rgba(200,146,42,0.15);border:1px solid rgba(200,146,42,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:12px;
+}
+.cat-name{font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;font-family:'Cormorant Garamond',serif}
+.cat-meta{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:14px}
+.cat-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--gold);color:var(--navy);
+  font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;
+  opacity:0;transform:translateY(8px);transition:all 0.3s 0.05s;
+}
+.cat-tile:hover .cat-pill{opacity:1;transform:translateY(0)}
+
+/* ═══════════ PRODUCTS ═══════════ */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+.prod-card{
+  background:var(--white);border-radius:var(--radius);
+  border:1px solid var(--border);overflow:hidden;
+  transition:all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  position:relative;
+}
+.prod-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(6,14,30,0.14),0 4px 16px rgba(200,146,42,0.12);
+  border-color:rgba(200,146,42,0.3);
+}
+
+.prod-img-wrap{
+  height:220px;position:relative;overflow:hidden;
+}
+.prod-img{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform 0.6s ease;
+}
+.prod-card:hover .prod-img{transform:scale(1.06)}
+
+.prod-ribbon{
+  position:absolute;top:14px;left:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);font-size:10px;font-weight:800;
+  letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 13px;border-radius:6px;
+  box-shadow:0 3px 12px rgba(200,146,42,0.4);
+}
+
+.prod-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(6,14,30,0.7) 0%,transparent 60%);
+}
+
+.prod-cap{
+  position:absolute;bottom:14px;left:14px;right:14px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.prod-cap-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:700;color:#fff;line-height:1;
+}
+.prod-cap-price small{font-size:12px;color:rgba(255,255,255,0.55);font-family:'Inter',sans-serif;font-weight:400}
+
+.prod-wishlist{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;cursor:pointer;backdrop-filter:blur(6px);
+  transition:all 0.2s;
+}
+.prod-wishlist:hover{background:var(--gold);color:var(--navy)}
+
+.prod-body{padding:22px}
+.prod-cat-tag{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.prod-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;font-weight:600;color:var(--navy);
+  line-height:1.3;margin-bottom:12px;
+}
+.prod-specs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.spec{
+  font-size:11px;color:var(--muted);
+  background:var(--bg);border:1px solid var(--border);
+  padding:4px 10px;border-radius:100px;
+}
+.prod-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:14px;border-top:1px solid var(--border);
+}
+.prod-enq{
+  background:var(--navy);color:#fff;
+  border:none;padding:9px 20px;border-radius:8px;
+  font-size:12px;font-weight:600;letter-spacing:0.4px;
+  cursor:pointer;transition:all 0.2s;
+}
+.prod-enq:hover{background:var(--gold);color:var(--navy)}
+.prod-rating{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.prod-rating strong{color:var(--text);font-weight:600}
+
+/* ═══════════ WHY US ═══════════ */
+.why-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+
+.why-img-stack{position:relative;height:580px}
+.why-img-main{
+  position:absolute;left:0;top:0;right:40px;bottom:80px;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(6,14,30,0.2);
+}
+.why-img-main img{width:100%;height:100%;object-fit:cover}
+.why-img-sub{
+  position:absolute;right:0;bottom:0;width:55%;height:55%;
+  border-radius:16px;overflow:hidden;
+  border:4px solid var(--white);
+  box-shadow:0 16px 40px rgba(6,14,30,0.18);
+}
+.why-img-sub img{width:100%;height:100%;object-fit:cover}
+.why-badge{
+  position:absolute;left:28px;bottom:100px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);border-radius:14px;
+  padding:16px 22px;
+  box-shadow:0 8px 32px rgba(200,146,42,0.45);
+}
+.why-badge-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;line-height:1}
+.why-badge-txt{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+
+.why-features{display:flex;flex-direction:column;gap:28px;margin-top:36px}
+.why-feat{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px;border-radius:12px;
+  border:1px solid transparent;
+  transition:all 0.3s;
+}
+.why-feat:hover{background:var(--bg);border-color:var(--border)}
+.why-feat-ico{
+  width:48px;height:48px;flex-shrink:0;border-radius:11px;
+  background:var(--gold-light);border:1px solid rgba(200,146,42,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.why-feat h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:5px}
+.why-feat p{font-size:13.5px;color:var(--muted);line-height:1.65}
+
+/* ═══════════ PROCESS ═══════════ */
+.proc-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;
+}
+.proc-grid::before{
+  content:'';position:absolute;
+  top:44px;left:calc(12.5% + 44px);right:calc(12.5% + 44px);
+  height:1px;background:linear-gradient(90deg,var(--gold),rgba(200,146,42,0.2));
+}
+.proc-step{padding:0 24px;text-align:center;position:relative}
+.proc-num{
+  width:88px;height:88px;border-radius:50%;
+  background:var(--white);border:1px solid var(--border);
+  margin:0 auto 24px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+  transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(6,14,30,0.06);
+}
+.proc-step:hover .proc-num{
+  background:var(--navy);border-color:var(--navy);
+  box-shadow:0 8px 32px rgba(6,14,30,0.2);
+}
+.proc-n-inner{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:700;
+  color:var(--gold);line-height:1;
+}
+.proc-step:hover .proc-n-inner{color:var(--gold2)}
+.proc-ico{font-size:26px;margin-bottom:16px}
+.proc-step h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.proc-step p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ═══════════ TESTIMONIALS ═══════════ */
+.testi-wrap{
+  display:grid;grid-template-columns:380px 1fr;gap:60px;align-items:start;
+}
+.testi-left{}
+.testi-score{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%);
+  border-radius:20px;padding:40px 36px;margin-top:36px;
+  position:relative;overflow:hidden;
+}
+.testi-score::before{
+  content:'';position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  background:rgba(200,146,42,0.08);
+  top:-60px;right:-60px;
+}
+.testi-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;font-weight:700;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;margin-bottom:4px;
+}
+.testi-stars{display:flex;gap:4px;margin-bottom:6px}
+.testi-stars span{color:#FBB040;font-size:20px}
+.testi-based{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:24px}
+.testi-bars{display:flex;flex-direction:column;gap:10px}
+.tbar{display:flex;align-items:center;gap:10px}
+.tbar-label{font-size:12px;color:rgba(255,255,255,0.5);width:90px;flex-shrink:0}
+.tbar-track{flex:1;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+.tbar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.tbar-val{font-size:12px;color:rgba(255,255,255,0.6);width:30px;text-align:right;flex-shrink:0}
+
+.testi-cards{display:flex;flex-direction:column;gap:20px}
+.testi-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:28px;
+  transition:all 0.3s;
+}
+.testi-card:hover{box-shadow:0 12px 40px rgba(6,14,30,0.08);border-color:rgba(200,146,42,0.2)}
+.testi-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--navy),var(--steel));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:700;color:var(--gold2);
+  font-family:'Cormorant Garamond',serif;
+}
+.testi-aname{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.testi-aloc{font-size:12px;color:var(--muted)}
+.testi-rating{display:flex;gap:2px}
+.testi-rating span{color:#FBB040;font-size:13px}
+.testi-text{font-size:14px;color:var(--muted);line-height:1.72;font-style:italic}
+.testi-product{
+  display:inline-block;margin-top:12px;
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ═══════════ CTA BAND ═══════════ */
+.cta-band{
+  position:relative;overflow:hidden;
+  padding:100px 80px;
+  background:var(--navy);
+}
+.cta-bg-img{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0.08;
+}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,30,0.95) 40%,rgba(6,14,30,0.7) 100%)}
+.cta-content{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:60px}
+.cta-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,3.5vw,48px);font-weight:700;color:#fff;
+  margin-bottom:12px;line-height:1.15;
+}
+.cta-h em{color:var(--gold2);font-style:normal}
+.cta-p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:480px}
+.cta-actions{display:flex;flex-direction:column;gap:12px;flex-shrink:0;min-width:240px}
+.cta-phone{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:14px 20px;text-decoration:none;
+  transition:all 0.3s;
+}
+.cta-phone:hover{background:rgba(255,255,255,0.1);border-color:rgba(200,146,42,0.4)}
+.cta-phone-ico{font-size:20px}
+.cta-phone-txt{display:flex;flex-direction:column}
+.cta-phone-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase}
+.cta-phone-num{font-size:17px;font-weight:600;color:#fff}
+
+/* ═══════════ CONTACT ═══════════ */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+
+.c-info-cards{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.c-card{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px 22px;border-radius:12px;
+  border:1px solid var(--border);
+  transition:all 0.3s;
+}
+.c-card:hover{border-color:rgba(200,146,42,0.3);background:var(--gold-light)}
+.c-ico{
+  width:46px;height:46px;flex-shrink:0;border-radius:10px;
+  background:var(--gold-light);border:1px solid rgba(200,146,42,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.c-card-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.c-card p{font-size:14px;color:var(--text);line-height:1.5}
+
+.contact-form{
+  background:var(--navy);border-radius:20px;
+  padding:44px 40px;
+  box-shadow:0 24px 60px rgba(6,14,30,0.18);
+}
+.form-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:700;color:#fff;margin-bottom:28px;
+}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{margin-bottom:16px}
+.f-group label{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px}
+.f-group input,.f-group select,.f-group textarea{
+  width:100%;padding:13px 16px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:9px;color:#fff;
+  font-size:14px;font-family:'Inter',sans-serif;
+  outline:none;transition:all 0.2s;
+}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{
+  border-color:var(--gold);background:rgba(255,255,255,0.08);
+}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+.f-group select option{background:var(--navy2);color:#fff}
+.f-group textarea{resize:vertical;min-height:88px}
+.f-submit{
+  width:100%;padding:15px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);border:none;border-radius:9px;
+  font-size:15px;font-weight:700;letter-spacing:0.4px;
+  cursor:pointer;transition:all 0.3s;
+  box-shadow:0 6px 24px rgba(200,146,42,0.35);
+}
+.f-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,146,42,0.5)}
+
+/* ═══════════ FOOTER ═══════════ */
+footer{background:#040C1A;padding:72px 80px 28px}
+.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-logo-area{padding-right:20px}
+.footer-tagline{font-size:13.5px;color:rgba(255,255,255,0.4);line-height:1.75;margin-top:18px;max-width:270px}
+.footer-social{display:flex;gap:10px;margin-top:24px}
+.social-btn{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;text-decoration:none;color:rgba(255,255,255,0.5);
+  transition:all 0.2s;
+}
+.social-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.footer-col h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:11px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;line-height:1.4;display:block}
+.footer-col a:hover{color:var(--gold)}
+.footer-divider{height:1px;background:rgba(255,255,255,0.05);margin-bottom:24px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-badges{display:flex;gap:16px}
+.fbadge{font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1.5px;text-transform:uppercase}
+
+/* ═══════════ MOBILE ═══════════ */
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-menu{display:none}
+  .sec{padding:70px 24px}
+  .numbers{padding:0 24px;grid-template-columns:repeat(2,1fr)}
+  .num-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:36px 0}
+  .num-cell:nth-child(odd){border-right:1px solid rgba(255,255,255,0.07)}
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .cat-tile:first-child{grid-column:span 2;height:320px}
+  .cat-tile{height:260px}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .why-wrap{grid-template-columns:1fr}
+  .why-img-stack{height:380px;margin-bottom:40px}
+  .proc-grid{grid-template-columns:1fr 1fr;gap:40px}
+  .proc-grid::before{display:none}
+  .testi-wrap{grid-template-columns:1fr}
+  .cta-band{padding:60px 24px}
+  .cta-content{flex-direction:column;gap:36px;text-align:center}
+  .cta-p{margin:0 auto}
+  .contact-wrap{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .slide-content{padding:0 24px}
+  .c-arrow.next{right:100px}
+  .slide-thumbs{display:none}
+}
+@media(max-width:600px){
+  .prod-grid{grid-template-columns:1fr}
+  .cats-grid{grid-template-columns:1fr}
+  .cat-tile:first-child{grid-column:span 1;height:300px}
+  .f-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-emblem">SVE</div>
+    <div class="nav-name">
+      <strong>Shri Vaishno Enterprises</strong>
+      <span>Est. 2006 · New Delhi, India</span>
+    </div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#categories">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-quote">Get a Quote →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="carousel-wrap" id="cw">
+
+    <!-- Slide 1 – Paper Plate Machine -->
+    <div class="slide active">
+      <div class="slide-img" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1800&q=85&fit=crop')"></div>
+      <div class="slide-gradient"></div>
+      <div class="slide-noise"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="eyebrow-dot"></span><span>Bestselling Machine</span></div>
+        <h1 class="slide-h1">Fully Automatic<br><em>Paper Plate</em><br>Making Machine</h1>
+        <p class="slide-p">High-output hydraulic double die press producing 5,000 plates per hour — engineered for reliability, built in Delhi.</p>
+        <div class="slide-price-line">
+          <span class="slide-from">Starting from</span>
+          <span class="slide-amount">₹80,000</span>
+          <span class="slide-unit">/ piece</span>
+        </div>
+        <div class="slide-btns">
+          <a href="#contact" class="btn-gold">Enquire Now</a>
+          <a href="#categories" class="btn-ghost">Explore Range</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 – Factory / Manufacturing -->
+    <div class="slide">
+      <div class="slide-img" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1800&q=85&fit=crop')"></div>
+      <div class="slide-gradient"></div>
+      <div class="slide-noise"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="eyebrow-dot"></span><span>Eco-Friendly Solutions</span></div>
+        <h1 class="slide-h1">Dona Making<br><em>Machine</em><br>Single Die Automatic</h1>
+        <p class="slide-p">Produce 15,000 eco-friendly dona cups per day. Ideal for new entrepreneurs entering the disposable products market.</p>
+        <div class="slide-price-line">
+          <span class="slide-from">Starting from</span>
+          <span class="slide-amount">₹35,000</span>
+          <span class="slide-unit">/ piece</span>
+        </div>
+        <div class="slide-btns">
+          <a href="#contact" class="btn-gold">Enquire Now</a>
+          <a href="#categories" class="btn-ghost">See All Models</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 – Industrial machinery -->
+    <div class="slide">
+      <div class="slide-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1800&q=85&fit=crop')"></div>
+      <div class="slide-gradient"></div>
+      <div class="slide-noise"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="eyebrow-dot"></span><span>Precision Engineering</span></div>
+        <h1 class="slide-h1">Paper Roll to<br><em>Sheet Cutting</em><br>Machine</h1>
+        <p class="slide-p">Reel-to-sheet precision cutting that delivers consistent raw material for all your plate and dona production lines.</p>
+        <div class="slide-price-line">
+          <span class="slide-from">Starting from</span>
+          <span class="slide-amount">₹95,000</span>
+          <span class="slide-unit">/ piece</span>
+        </div>
+        <div class="slide-btns">
+          <a href="#contact" class="btn-gold">Get a Quote</a>
+          <a href="#categories" class="btn-ghost">View Specs</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 – Manufacturing plant -->
+    <div class="slide">
+      <div class="slide-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=85&fit=crop')"></div>
+      <div class="slide-gradient"></div>
+      <div class="slide-noise"></div>
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="eyebrow-dot"></span><span>Premium Finish</span></div>
+        <h1 class="slide-h1">Paper Plate<br><em>Lamination</em><br>Machine</h1>
+        <p class="slide-p">Apply a premium waterproof laminate finish. Fully automatic with adjustable speed — ready for large-scale production from day one.</p>
+        <div class="slide-price-line">
+          <span class="slide-from">Starting from</span>
+          <span class="slide-amount">₹1,05,000</span>
+          <span class="slide-unit">/ piece</span>
+        </div>
+        <div class="slide-btns">
+          <a href="#contact" class="btn-gold">Request Demo</a>
+          <a href="#categories" class="btn-ghost">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end carousel-wrap -->
+
+  <!-- thumbnail strip -->
+  <div class="slide-thumbs" id="thumbs">
+    <div class="thumb active" data-i="0" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=200&q=70&fit=crop')"></div>
+    <div class="thumb" data-i="1" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=200&q=70&fit=crop')"></div>
+    <div class="thumb" data-i="2" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=200&q=70&fit=crop')"></div>
+    <div class="thumb" data-i="3" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=200&q=70&fit=crop')"></div>
+  </div>
+
+  <button class="c-arrow prev" id="prev">&#8592;</button>
+  <button class="c-arrow next" id="next">&#8594;</button>
+
+  <div class="c-dots" id="dots">
+    <div class="c-dot on" data-i="0"></div>
+    <div class="c-dot" data-i="1"></div>
+    <div class="c-dot" data-i="2"></div>
+    <div class="c-dot" data-i="3"></div>
+  </div>
+
+  <div class="slide-progress"><div class="slide-progress-bar" id="pbar"></div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="ticker-dot"></span>18+ Years of Manufacturing Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>500+ Machines Delivered Pan-India</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>4.3★ Rated — 205 Verified Reviews</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>ISO Quality Tested Before Dispatch</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Manufacturer · Exporter · Supplier · New Delhi</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>96% Response Rate</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>18+ Years of Manufacturing Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>500+ Machines Delivered Pan-India</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>4.3★ Rated — 205 Verified Reviews</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>ISO Quality Tested Before Dispatch</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Manufacturer · Exporter · Supplier · New Delhi</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>96% Response Rate</span>
+  </div>
+</div>
+
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="num-cell">
+    <div class="num-big">18<span class="num-plus">+</span></div>
+    <div class="num-label">Years in Business</div>
+  </div>
+  <div class="num-cell">
+    <div class="num-big">500<span class="num-plus">+</span></div>
+    <div class="num-label">Machines Delivered</div>
+  </div>
+  <div class="num-cell">
+    <div class="num-big">25<span class="num-plus">+</span></div>
+    <div class="num-label">Machine Models</div>
+  </div>
+  <div class="num-cell">
+    <div class="num-big">205<span class="num-plus">+</span></div>
+    <div class="num-label">Happy Customers</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="sec sec-alt" id="categories" style="padding-left:0;padding-right:0;padding-bottom:0">
+  <div style="padding:0 80px 48px">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Our Range</div>
+      <h2 class="sec-h">Machine Categories</h2>
+      <p class="sec-sub">From manual entry-level machines to fully hydraulic automated lines — every budget, every scale.</p>
+    </div>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-tile">
+      <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80&fit=crop')"></div>
+      <div class="cat-veil"></div>
+      <div class="cat-body">
+        <div class="cat-icon-wrap">🍽</div>
+        <div class="cat-name">Paper Plate Machines</div>
+        <div class="cat-meta">5 Products · ₹12,000 – ₹90,000</div>
+        <div class="cat-pill">Explore →</div>
+      </div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=80&fit=crop')"></div>
+      <div class="cat-veil"></div>
+      <div class="cat-body">
+        <div class="cat-icon-wrap">🥣</div>
+        <div class="cat-name">Dona Making Machines</div>
+        <div class="cat-meta">4 Products · ₹28,000 – ₹86,000</div>
+        <div class="cat-pill">Explore →</div>
+      </div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80&fit=crop')"></div>
+      <div class="cat-veil"></div>
+      <div class="cat-body">
+        <div class="cat-icon-wrap">✂</div>
+        <div class="cat-name">Sheet Cutting Machines</div>
+        <div class="cat-meta">5 Products · ₹95,000 – ₹1,10,000</div>
+        <div class="cat-pill">Explore →</div>
+      </div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80&fit=crop')"></div>
+      <div class="cat-veil"></div>
+      <div class="cat-body">
+        <div class="cat-icon-wrap">✨</div>
+        <div class="cat-name">Lamination & Candle</div>
+        <div class="cat-meta">Candle · Chalk · Lamination Machines</div>
+        <div class="cat-pill">Explore →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec" id="products">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Featured Products</div>
+    <h2 class="sec-h">Our Best-Selling Machines</h2>
+    <p class="sec-sub">Every machine quality-tested before dispatch. Backed by 18 years of manufacturing expertise from New Delhi.</p>
+  </div>
+  <div class="prod-grid">
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=80&fit=crop')"></div>
+        <div class="prod-ribbon">Bestseller</div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹80,000<small> / piece</small></div>
+          <div class="prod-wishlist">⚙</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Paper Plate Machine</div>
+        <div class="prod-name">Fully Automatic Paper Plate Making Machine</div>
+        <div class="prod-specs">
+          <span class="spec">5,000 plates/hr</span>
+          <span class="spec">Double Die</span>
+          <span class="spec">Semi-Auto</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.3</strong> (205)</div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=700&q=80&fit=crop')"></div>
+        <div class="prod-ribbon">Popular</div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹70,000<small> / piece</small></div>
+          <div class="prod-wishlist">🔩</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Hydraulic Machine</div>
+        <div class="prod-name">Semi Auto Double Die Hydraulic Machine</div>
+        <div class="prod-specs">
+          <span class="spec">5,000 plates/hr</span>
+          <span class="spec">Mild Steel</span>
+          <span class="spec">Brand: SVE</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.3</strong></div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80&fit=crop')"></div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹35,000<small> / piece</small></div>
+          <div class="prod-wishlist">🥣</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Dona Making</div>
+        <div class="prod-name">Fully Automatic Single Die Dona Machine</div>
+        <div class="prod-specs">
+          <span class="spec">15,000 pcs/day</span>
+          <span class="spec">Fully Auto</span>
+          <span class="spec">Paper</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.4</strong></div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80&fit=crop')"></div>
+        <div class="prod-ribbon">New</div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹86,000<small> / piece</small></div>
+          <div class="prod-wishlist">🏭</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Hydraulic Machine</div>
+        <div class="prod-name">All-In-One Full Automatic Double Die Machine</div>
+        <div class="prod-specs">
+          <span class="spec">Fully Auto</span>
+          <span class="spec">Hydraulic</span>
+          <span class="spec">Made in India</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.2</strong></div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=700&q=80&fit=crop')"></div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹98,000<small> / piece</small></div>
+          <div class="prod-wishlist">✂</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Sheet Cutting Machine</div>
+        <div class="prod-name">Paper Roll to Sheet Cutter Machine</div>
+        <div class="prod-specs">
+          <span class="spec">High Precision</span>
+          <span class="spec">Adjustable</span>
+          <span class="spec">Mild Steel</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.3</strong></div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img-wrap">
+        <div class="prod-img" style="background-image:url('https://images.unsplash.com/photo-1581092160562-40aa08e26e32?w=700&q=80&fit=crop')"></div>
+        <div class="prod-ribbon">Premium</div>
+        <div class="prod-img-overlay"></div>
+        <div class="prod-cap">
+          <div class="prod-cap-price">₹1,05,000<small> / piece</small></div>
+          <div class="prod-wishlist">✨</div>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat-tag">Lamination Machine</div>
+        <div class="prod-name">Paper Plate Lamination Machine</div>
+        <div class="prod-specs">
+          <span class="spec">Fully Auto</span>
+          <span class="spec">Made in India</span>
+          <span class="spec">High Output</span>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-rating">★★★★<span style="opacity:0.4">★</span> <strong>4.5</strong></div>
+          <button class="prod-enq">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec sec-alt" id="about">
+  <div class="why-wrap">
+    <div class="why-img-stack">
+      <div class="why-img-main">
+        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=900&q=85&fit=crop" alt="Manufacturing facility"/>
+      </div>
+      <div class="why-img-sub">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=85&fit=crop" alt="Precision machine"/>
+      </div>
+      <div class="why-badge">
+        <div class="why-badge-num">18+</div>
+        <div class="why-badge-txt">Years of Excellence</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-eyebrow">Why Choose SVE</div>
+      <h2 class="sec-h">Trusted by 500+<br>Entrepreneurs Across India</h2>
+      <p class="sec-sub">Since 2006, we have empowered hundreds of entrepreneurs to launch and grow successful disposable products manufacturing businesses.</p>
+      <div class="why-features">
+        <div class="why-feat">
+          <div class="why-feat-ico">🏭</div>
+          <div>
+            <h4>In-House Manufacturing</h4>
+            <p>Every machine is built at our Delhi facility using superior-grade mild steel and precision-machined components by our engineers.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="why-feat-ico">✅</div>
+          <div>
+            <h4>Pre-Delivery Quality Testing</h4>
+            <p>Strict QC checks by our quality experts before every dispatch. Your machine meets global performance standards from day one.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="why-feat-ico">🛠</div>
+          <div>
+            <h4>After-Sales Support</h4>
+            <p>Installation guidance, operator training, and ongoing technical support. Our team is with you at every stage of your business.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="why-feat-ico">💰</div>
+          <div>
+            <h4>Every Budget, Every Scale</h4>
+            <p>From ₹12,000 hand-press machines to ₹1,05,000 fully automated hydraulic lines — the right machine for your investment level.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="sec-head ctr">
+    <div class="sec-eyebrow">How It Works</div>
+    <h2 class="sec-h">From Enquiry to Your Factory Floor</h2>
+    <p class="sec-sub">A transparent, friction-free process — from your first call to a running machine at your premises.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-step">
+      <div class="proc-num"><div class="proc-n-inner">01</div></div>
+      <div class="proc-ico">💬</div>
+      <h4>Share Your Requirement</h4>
+      <p>Tell us your production target, budget, and available space. We recommend the exact machine for your business needs.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num"><div class="proc-n-inner">02</div></div>
+      <div class="proc-ico">📋</div>
+      <h4>Receive Custom Quote</h4>
+      <p>Detailed quotation with machine specs, pricing, warranty terms, and confirmed delivery timeline — no hidden costs.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num"><div class="proc-n-inner">03</div></div>
+      <div class="proc-ico">⚙</div>
+      <h4>Manufacturing & QC</h4>
+      <p>Built with superior materials at our Delhi plant. Each machine undergoes rigorous pre-dispatch testing by our quality team.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num"><div class="proc-n-inner">04</div></div>
+      <div class="proc-ico">🚚</div>
+      <h4>Delivery & Commissioning</h4>
+      <p>Pan-India delivery with installation guidance and operator training — your production starts from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec sec-alt" id="reviews">
+  <div class="sec-head">
+    <div class="sec-eyebrow">Customer Reviews</div>
+    <h2 class="sec-h">What Our Customers Say</h2>
+    <p class="sec-sub">Real feedback from entrepreneurs and businesses across India who run their operations on SVE machines.</p>
+  </div>
+  <div class="testi-wrap">
+    <div>
+      <div class="testi-score">
+        <div class="testi-big">4.3</div>
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span style="opacity:0.35">★</span></div>
+        <div class="testi-based">Based on 205 verified reviews</div>
+        <div class="testi-bars">
+          <div class="tbar"><span class="tbar-label">Quality</span><div class="tbar-track"><div class="tbar-fill" style="width:94%"></div></div><span class="tbar-val">94%</span></div>
+          <div class="tbar"><span class="tbar-label">Response</span><div class="tbar-track"><div class="tbar-fill" style="width:96%"></div></div><span class="tbar-val">96%</span></div>
+          <div class="tbar"><span class="tbar-label">Delivery</span><div class="tbar-track"><div class="tbar-fill" style="width:88%"></div></div><span class="tbar-val">88%</span></div>
+          <div class="tbar"><span class="tbar-label">Value</span><div class="tbar-track"><div class="tbar-fill" style="width:91%"></div></div><span class="tbar-val">91%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-cards">
+      <div class="testi-card">
+        <div class="testi-card-head">
+          <div class="testi-author">
+            <div class="testi-av">B</div>
+            <div>
+              <div class="testi-aname">Brijesh Kumar</div>
+              <div class="testi-aloc">New Delhi, Delhi</div>
+            </div>
+          </div>
+          <div class="testi-rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+        <p class="testi-text">"Excellent machine quality. Runs smoothly, produces great output every single day. Very happy with the after-sales support from the SVE team. Would strongly recommend to anyone starting this business."</p>
+        <span class="testi-product">Paper Dona Machine</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-head">
+          <div class="testi-author">
+            <div class="testi-av" style="background:linear-gradient(135deg,#1a4030,#2a6040)">V</div>
+            <div>
+              <div class="testi-aname">Vishal Raut</div>
+              <div class="testi-aloc">Navi Mumbai, Maharashtra</div>
+            </div>
+          </div>
+          <div class="testi-rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+        <p class="testi-text">"Started my small business with their single-die machine. Fantastic value for money and very durable — already upgrading to a double-die model. The team is responsive and professional throughout."</p>
+        <span class="testi-product">Paper Dish Machine</span>
+      </div>
+      <div class="testi-card">
+        <div class="testi-card-head">
+          <div class="testi-author">
+            <div class="testi-av" style="background:linear-gradient(135deg,#2a1530,#4a2555)">S</div>
+            <div>
+              <div class="testi-aname">Sudhkar</div>
+              <div class="testi-aloc">Bengaluru, Karnataka</div>
+            </div>
+          </div>
+          <div class="testi-rating"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+        <p class="testi-text">"Good response rate and on-time delivery. Machine quality is exactly as described. The hydraulic machine has been running for months without any issues. A reliable manufacturer."</p>
+        <span class="testi-product">Hydraulic Plate Machine</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-bg-img" style="background-image:url('https://images.unsplash.com/photo-1581092160562-40aa08e26e32?w=1800&q=70&fit=crop')"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div>
+      <h2 class="cta-h">Ready to Launch Your<br><em>Manufacturing Business?</em></h2>
+      <p class="cta-p">Get a free consultation, product demo, and detailed quotation from India's trusted machine manufacturer. 18 years of expertise at your service.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:+918047698233" class="cta-phone">
+        <span class="cta-phone-ico">📞</span>
+        <span class="cta-phone-txt">
+          <span class="cta-phone-label">Call or WhatsApp</span>
+          <span class="cta-phone-num">+91 80476 98233</span>
+        </span>
+      </a>
+      <a href="#contact" class="btn-gold" style="text-align:center">Send an Enquiry →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="contact-wrap">
+    <div>
+      <div class="sec-eyebrow">Contact Us</div>
+      <h2 class="sec-h">Get in Touch<br>with Our Team</h2>
+      <p class="sec-sub">We respond within 24 hours with a detailed quote tailored to your business requirements.</p>
+      <div class="c-info-cards">
+        <div class="c-card">
+          <div class="c-ico">📍</div>
+          <div>
+            <div class="c-card-label">Our Location</div>
+            <p>Shahdara, New Delhi – 110032, Delhi, India</p>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-ico">📞</div>
+          <div>
+            <div class="c-card-label">Phone & WhatsApp</div>
+            <p>+91 80476 98233 &nbsp;·&nbsp; 86% Response Rate</p>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-ico">👤</div>
+          <div>
+            <div class="c-card-label">Director</div>
+            <p>Mr. Sheoraj Singh Solanki — Proprietor, SVE</p>
+          </div>
+        </div>
+        <div class="c-card">
+          <div class="c-ico">✅</div>
+          <div>
+            <div class="c-card-label">Verified Business</div>
+            <p>TrustSEAL Verified · GST Registered · Manufacturer & Exporter</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Send Your Enquiry</div>
+      <div class="f-row">
+        <div class="f-group"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="f-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
+      </div>
+      <div class="f-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="f-group">
+        <label>Machine of Interest</label>
+        <select>
+          <option value="">Select a machine…</option>
+          <option>Fully Automatic Paper Plate Machine</option>
+          <option>Semi Auto Double Die Hydraulic Machine</option>
+          <option>Fully Automatic Dona Making Machine</option>
+          <option>Paper Plate Lamination Machine</option>
+          <option>Paper Roll to Sheet Cutter</option>
+          <option>Hand Press Paper Plate Machine</option>
+          <option>Triple Die Hydraulic Machine</option>
+          <option>Multiple / Custom Requirement</option>
+        </select>
+      </div>
+      <div class="f-group"><label>Your Message</label><textarea placeholder="Tell us your production target, location, budget or any specific requirement…"></textarea></div>
+      <button class="f-submit">Send Enquiry — We Respond in 24 hrs →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-area">
+      <a href="#" class="nav-brand" style="text-decoration:none">
+        <div class="nav-emblem">SVE</div>
+        <div class="nav-name">
+          <strong style="color:#fff">Shri Vaishno Enterprises</strong>
+          <span>Est. 2006 · New Delhi</span>
+        </div>
+      </a>
+      <p class="footer-tagline">Manufacturing, exporting, and supplying industrial machines since 2006. Trusted by 500+ entrepreneurs across India for quality, durability, and performance.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">Paper Plate Machines</a></li>
+        <li><a href="#">Dona Making Machines</a></li>
+        <li><a href="#">Sheet Cutting Machines</a></li>
+        <li><a href="#">Lamination Machines</a></li>
+        <li><a href="#">Candle Making Machine</a></li>
+        <li><a href="#">Chalk Making Die</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Process</a></li>
+        <li><a href="#">Customer Reviews</a></li>
+        <li><a href="#">Photo Gallery</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">IndiaMART Profile</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get In Touch</h5>
+      <ul>
+        <li><a href="tel:+918047698233">+91 80476 98233</a></li>
+        <li><a href="#">WhatsApp Us</a></li>
+        <li><a href="#">Shahdara, New Delhi</a></li>
+        <li><a href="#">Get Directions</a></li>
+        <li><a href="#">Send Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 Shri Vaishno Enterprises. All rights reserved. Shahdara, New Delhi, India.</p>
+    <div class="footer-badges">
+      <span class="fbadge">Manufacturer</span>
+      <span class="fbadge">·</span>
+      <span class="fbadge">Exporter</span>
+      <span class="fbadge">·</span>
+      <span class="fbadge">Supplier</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cw = document.getElementById('cw');
+const slides = cw.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.c-dot');
+const thumbs = document.querySelectorAll('.thumb');
+const pbar = document.getElementById('pbar');
+let cur = 0, tot = slides.length, timer, prog;
+
+function goTo(n){
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('on');
+  thumbs[cur].classList.remove('active');
+  cur = (n + tot) % tot;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('on');
+  thumbs[cur].classList.add('active');
+  pbar.style.transition = 'none'; pbar.style.width = '0%';
+  setTimeout(()=>{ pbar.style.transition = 'width 5s linear'; pbar.style.width = '100%'; }, 30);
+}
+
+function startTimer(){ clearInterval(timer); timer = setInterval(()=>goTo(cur+1), 5000) }
+
+document.getElementById('next').onclick = ()=>{ goTo(cur+1); startTimer() };
+document.getElementById('prev').onclick = ()=>{ goTo(cur-1); startTimer() };
+dots.forEach(d=>d.addEventListener('click',()=>{ goTo(+d.dataset.i); startTimer() }));
+thumbs.forEach(t=>t.addEventListener('click',()=>{ goTo(+t.dataset.i); startTimer() }));
+
+goTo(0); startTimer();
+
+/* Scrolled nav */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}) }
+  });
+});
+
+/* Enquire buttons */
+document.querySelectorAll('.prod-enq').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelector('#contact').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
