@@ -86,8 +86,13 @@ nav.scrolled{background:rgba(6,14,30,0.98);box-shadow:0 4px 30px rgba(0,0,0,0.4)
   min-height:600px;max-height:860px;
   position:relative;overflow:hidden;
 }
+.carousel-wrap{
+  display:flex;height:100%;
+  transition:transform 0.9s cubic-bezier(0.77,0,0.175,1);
+  will-change:transform;
+}
 
-.carousel-wrap{display:flex;height:100%;transition:transform 0.9s cubic-bezier(0.77,0,0.175,1)}
+
 
 .slide{
   min-width:100%;height:100%;position:relative;
@@ -1409,6 +1414,7 @@ function goTo(n){
   slides[cur].classList.add('active');
   dots[cur].classList.add('on');
   thumbs[cur].classList.add('active');
+  cw.style.transform = `translateX(-${cur * 100}%)`;
   pbar.style.transition = 'none'; pbar.style.width = '0%';
   setTimeout(()=>{ pbar.style.transition = 'width 5s linear'; pbar.style.width = '100%'; }, 30);
 }
