@@ -1,6 +1,5 @@
-sleeper-making-machine
+
 products/single-die-full-automatic-machine.html
-products/single-die-full-automatic-heavy-duty.html
 products/roll-to-sheet-cutting-machine.html
 products/manual-hand-press-machine.html
 products/paper-plate-lamination-machine.html
