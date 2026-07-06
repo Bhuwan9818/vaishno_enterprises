@@ -22,7 +22,50 @@
     <li><a href='../index.html#reviews'>Reviews</a></li>
     <li><a href='../index.html#contact' class='ncta'>Get a Quote</a></li>
   </ul>
+  <button id='nhbtn' class='nhbtn' aria-label='Open menu'><span></span><span></span><span></span></button>
 </nav>
+
+<div id='mnavOverlay' class='mnav-overlay'></div>
+<aside id='mnav' class='mnav'>
+  <div class='mnav-top'>
+    <div class='mnav-brand'></div>
+    <button id='mnavClose' class='mnav-close' aria-label='Close menu'>&times;</button>
+  </div>
+  <ul id='mnavLinks' class='mnav-links'></ul>
+  <div class='mnav-foot'>Est. 2006 &middot; New Delhi</div>
+</aside>
+<script>
+(function(){
+  var topnav=document.getElementById('topnav');
+  var hbtn=document.getElementById('nhbtn');
+  var overlay=document.getElementById('mnavOverlay');
+  var mnav=document.getElementById('mnav');
+  var closeBtn=document.getElementById('mnavClose');
+  var linksList=document.getElementById('mnavLinks');
+  var brandBox=mnav.querySelector('.mnav-brand');
+  var brandSrc=topnav.querySelector('.nbrand');
+  if(brandSrc){brandBox.innerHTML=brandSrc.innerHTML;}
+  var srcLinks=topnav.querySelectorAll('.nlinks > li');
+  for(var i=0;i<srcLinks.length;i++){
+    var a=srcLinks[i].querySelector('a');
+    var li=document.createElement('li');
+    var ac=document.createElement('a');
+    ac.href=a.getAttribute('href');
+    ac.textContent=a.textContent;
+    if(a.classList.contains('ncta')){ac.className='mnav-cta';}
+    li.appendChild(ac);
+    linksList.appendChild(li);
+  }
+  function openNav(){document.body.classList.add('mnav-open');}
+  function closeNav(){document.body.classList.remove('mnav-open');}
+  hbtn.addEventListener('click',openNav);
+  closeBtn.addEventListener('click',closeNav);
+  overlay.addEventListener('click',closeNav);
+  linksList.addEventListener('click',function(e){if(e.target.tagName==='A'){closeNav();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeNav();}});
+})();
+</script>
+
 
 <div class='breadcrumb'>
   <a href='../index.html'>Home</a><span>/</span>
